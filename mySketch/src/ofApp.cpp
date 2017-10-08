@@ -1,18 +1,22 @@
 #include "ofApp.h"
 
+int myCircleX;
+int myCircleY;
+
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+    myCircleX = 300;
+    myCircleY = 200;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    myCircleX = myCircleX + 1;
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-     ofDrawCircle(200, 300, 60);
+    ofDrawCircle(myCircleX, myCircleY, 60);
 }
 
 //--------------------------------------------------------------
