@@ -5,13 +5,18 @@ int myCircleY;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    ofSetFrameRate(60);
+
     myCircleX = 300;
     myCircleY = 200;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    myCircleX = myCircleX + 1;
+    myCircleX += 4;
+    if(myCircleX > 1024){
+        myCircleX = 300;
+    }
 }
 
 //--------------------------------------------------------------
