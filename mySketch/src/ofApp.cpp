@@ -1,32 +1,39 @@
 #include "ofApp.h"
+#define NUM_CIRCLES 500
 
-int myCircleX;
-int myCircleY;
+float circleX[NUM_CIRCLES];
+float circleY[NUM_CIRCLES];
+float circleRad[NUM_CIRCLES];
 
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofSetFrameRate(60);
 
-    myCircleX = 300;
-    myCircleY = 200;
+    for(int i=0; i<NUM_CIRCLES;i++){
+        circleX[i] = ofRandom(0, ofGetWidth());
+        circleY[i] = ofRandom(0, ofGetHeight());
+        circleRad[i] = ofRandom(10, 40);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    myCircleX += 4;
-    if(myCircleX > 1024){
-        myCircleX = 300;
+    for(int i=0; i<NUM_CIRCLES;i++){
+        circleX[i] += ofRandom(-1,1);
+        circleY[i] += ofRandom(-1,1);
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofDrawCircle(myCircleX, myCircleY, 60);
+    for(int i=0; i<NUM_CIRCLES;i++){
+        ofDrawCircle(circleX[i], circleY[i], circleRad[i]);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    cout << "keyPressed " << (char)key << endl;
 }
 
 //--------------------------------------------------------------
