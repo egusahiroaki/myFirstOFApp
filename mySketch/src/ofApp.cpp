@@ -50,9 +50,12 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofSetColor(0,0,0);
     for(int i=0; i<NUM_CIRCLES;i++){
+        ofNoFill();
+        ofSetColor(0,0,0);
         circles[i].display();
+        ofFill();
+        ofSetColor(255, 255, 255);
     }
 }
 
