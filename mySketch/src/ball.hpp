@@ -14,15 +14,20 @@
 
 class Ball {
 public:
-    void init(float _y, int _eSize, float _speed);
+    void init(float _x, float _y, int _eSize);
     
     void update();
 
     void grow();
 
+    bool checkEdge();
+    void stopGrow();
+    
     void display();
     
     float xPos, yPos, eSize, speed;
+
+    bool isGrowing;
     
 private:
 };

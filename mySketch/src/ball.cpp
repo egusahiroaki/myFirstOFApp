@@ -8,22 +8,42 @@
 
 #include "ball.hpp"
 
-void Ball::init (float _y, int _eSize, float _speed){
+void Ball::init (float _x, float _y, int _eSize){
 
-    xPos = 0.0;
+    xPos = _x;
     yPos = _y;
     eSize = _eSize;
-    speed = _speed;
+    speed = 1;
+    isGrowing = true;
 }
 
 void Ball::grow() {
-    eSize += 2;
+    if(isGrowing){
+        eSize += 1;
+    }
+}
+
+void Ball::stopGrow() {
+    isGrowing = false;
+}
+
+
+bool Ball::checkEdge() {
+    if(xPos + eSize > ofGetWidth() || xPos - eSize < 0){
+        return true;
+    }
+    
+    if(yPos + eSize > ofGetHeight() || yPos - eSize < 0){
+        return true;
+    }
+
+    return false;
 }
 
 void Ball::update() {
     
     xPos += speed;
-    if (xPos >  ofGetWidth()){
+    if (xPos > ofGetWidth()){
         xPos = 0;
     }
 }

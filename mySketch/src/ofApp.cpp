@@ -12,7 +12,7 @@ void ofApp::setup(){
     ofSetCircleResolution(64);
 
     for(int i=0; i<NUM_CIRCLES;i++){
-        circles[i].init(100, 10, 1.0);
+        circles[i].init(100, 100, 1.0);
     }
 
 /*
@@ -41,6 +41,9 @@ void ofApp::update(){
 //    b2.update();
 
     for(int i=0; i<NUM_CIRCLES;i++){
+        if(circles[i].checkEdge()){
+            circles[i].stopGrow();
+        }
         circles[i].grow();
     }
 }
