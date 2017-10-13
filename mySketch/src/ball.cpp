@@ -8,8 +8,8 @@
 
 #include "ball.hpp"
 
-void Ball::init (float _x, float _y, int _eSize){
 
+void Ball::init (float _x, float _y, int _eSize){
     xPos = _x;
     yPos = _y;
     eSize = _eSize;
@@ -18,6 +18,8 @@ void Ball::init (float _x, float _y, int _eSize){
 }
 
 void Ball::grow() {
+    
+//    cout << "grow" << endl;
     if(isGrowing){
         eSize += 1;
     }

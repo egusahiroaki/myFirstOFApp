@@ -13,7 +13,9 @@ std::vector<Ball> circles;
 //--------------------------------------------------------------
 void ofApp::setup(){
 //    ofSetFrameRate(60);
+    ofSetFrameRate(1000);
 
+    
     ofBackground(255, 255, 255);
     ofSetCircleResolution(64);
     
@@ -67,10 +69,25 @@ void ofApp::newCircle(){
 void ofApp::update(){
 
     newCircle();
-    
-    for(int i=0; i<circles.size();i++){
-        if(circles[i].checkEdge()){
-            circles[i].stopGrow();
+    for(int i=0; i< circles.size(); i++){
+
+        //cout << c.id << endl;
+        if(circles[i].isGrowing){
+            if(circles[i].checkEdge()){
+                circles[i].stopGrow();
+            }else{
+                for(int j=0; j<circles.size(); j++){
+                    if(!(circles[i].xPos == circles[j].xPos)&& !(circles[i].yPos == circles[j].yPos)) {
+                        float d = ofDist(circles[i].xPos, circles[i].yPos, circles[j].xPos, circles[j].yPos);
+                        if(d < circles[i].eSize + circles[j].eSize){ // 円同士が重なったら
+                            circles[i].stopGrow();
+                            break;
+                        }
+                    }
+                }
+                
+            }
+            
         }
         circles[i].grow();
     }
@@ -78,10 +95,10 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    for(int i=0; i<NUM_CIRCLES;i++){
+    for(Ball c:circles){
         ofNoFill();
         ofSetColor(0,0,0);
-        circles[i].display();
+        c.display();
         ofFill();
         ofSetColor(255, 255, 255);
     }
