@@ -22,10 +22,9 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
     
-    Ball b1, b2;
     ofImage bkImage;
     
-//    private:
-//    void newCircle():
+    private:
+    void newCircle();
 		
 };

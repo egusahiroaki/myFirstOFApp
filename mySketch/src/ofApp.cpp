@@ -1,10 +1,14 @@
 #include "ofApp.h"
 #include <random>
+#include <vector>
 
 #define NUM_CIRCLES 10
 
 
-std::array<Ball, NUM_CIRCLES> circles;
+//std::array<Ball, NUM_CIRCLES> circles;
+
+std::vector<Ball> circles;
+
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -13,14 +17,10 @@ void ofApp::setup(){
     ofBackground(255, 255, 255);
     ofSetCircleResolution(64);
     
-
-
-    
-    for(int i=0; i<NUM_CIRCLES;i++){
-        float r = ((float) rand() / (RAND_MAX));
-        float s = ((float) rand() / (RAND_MAX));
-        std::cout << r << std::endl;;
-        circles[i].init(ofGetWidth() * r, ofGetHeight() * s, 1.0);
+    for(Ball c:circles){
+//        float x = ((float) rand() / (RAND_MAX));
+//        float y = ((float) rand() / (RAND_MAX));
+//        circles[i].init(ofGetWidth() * x, ofGetHeight() * y, 1.0);
     }
 
 /*
@@ -41,11 +41,34 @@ void ofApp::setup(){
 
     bkImage.draw(imageMarginWidth, 0, imageWidth, imageHeight); // 800 x 1145
 */
+
+}
+
+void ofApp::newCircle(){
+    float x = ofGetWidth() * ((float) rand() / (RAND_MAX));
+    float y = ofGetHeight() * ((float) rand() / (RAND_MAX));
+    
+    bool valid = true;
+    for(Ball c:circles){
+        float d = ofDist(x, y, c.xPos, c.yPos);
+        if(d < c.eSize){
+            valid = false;
+            break;
+        }
+    }
+    if(valid){
+        Ball b;
+        b.init(x, y, 1.0);
+        circles.push_back(b);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    for(int i=0; i<NUM_CIRCLES;i++){
+
+    newCircle();
+    
+    for(int i=0; i<circles.size();i++){
         if(circles[i].checkEdge()){
             circles[i].stopGrow();
         }
