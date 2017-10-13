@@ -1,5 +1,7 @@
 #include "ofApp.h"
-#define NUM_CIRCLES 1
+#include <random>
+
+#define NUM_CIRCLES 10
 
 
 std::array<Ball, NUM_CIRCLES> circles;
@@ -10,9 +12,15 @@ void ofApp::setup(){
 
     ofBackground(255, 255, 255);
     ofSetCircleResolution(64);
+    
 
+
+    
     for(int i=0; i<NUM_CIRCLES;i++){
-        circles[i].init(100, 100, 1.0);
+        float r = ((float) rand() / (RAND_MAX));
+        float s = ((float) rand() / (RAND_MAX));
+        std::cout << r << std::endl;;
+        circles[i].init(ofGetWidth() * r, ofGetHeight() * s, 1.0);
     }
 
 /*
@@ -37,9 +45,6 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-//    b1.update();
-//    b2.update();
-
     for(int i=0; i<NUM_CIRCLES;i++){
         if(circles[i].checkEdge()){
             circles[i].stopGrow();

@@ -25,5 +25,7 @@ class ofApp : public ofBaseApp{
     Ball b1, b2;
     ofImage bkImage;
     
+//    private:
+//    void newCircle():
 		
 };
