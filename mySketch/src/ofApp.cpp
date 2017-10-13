@@ -26,25 +26,16 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-//    for(int i=0; i<NUM_CIRCLES;i++){
-//        circleX[i] += ofRandom(-1,1);
-//        circleY[i] += ofRandom(-1,1);
-//    }
-    
     b1.update();
     b2.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-//    for(int i=0; i<NUM_CIRCLES;i++){
-//        ofDrawCircle(circleX[i], circleY[i], circleRad[i]);
-//    }
-//    ofSetColor(0, 0, 0);
     float imageHeight = ofGetHeight();
     float imageWidth  = imageHeight * 800 /1145;
-    float widthMargin  = (ofGetWidth() - imageHeight * 800 /1145)/2;
-    bkImage.draw(widthMargin, 0, imageWidth, imageHeight); // 800 x 1145
+    float imageMarginWidth  = (ofGetWidth() - imageHeight * 800 /1145)/2;
+    bkImage.draw(imageMarginWidth, 0, imageWidth, imageHeight); // 800 x 1145
     b1.display();
     b2.display();
 }
