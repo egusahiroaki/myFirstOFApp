@@ -16,6 +16,10 @@ void Ball::init (float _y, int _eSize, float _speed){
     speed = _speed;
 }
 
+void Ball::grow() {
+    eSize += 2;
+}
+
 void Ball::update() {
     
     xPos += speed;

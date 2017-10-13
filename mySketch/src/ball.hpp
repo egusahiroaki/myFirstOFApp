@@ -17,7 +17,9 @@ public:
     void init(float _y, int _eSize, float _speed);
     
     void update();
-    
+
+    void grow();
+
     void display();
     
     float xPos, yPos, eSize, speed;

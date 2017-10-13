@@ -1,43 +1,56 @@
 #include "ofApp.h"
-#define NUM_CIRCLES 500
+#define NUM_CIRCLES 1
 
-//float circleX[NUM_CIRCLES];
-//float circleY[NUM_CIRCLES];
-//float circleRad[NUM_CIRCLES];
+
+std::array<Ball, NUM_CIRCLES> circles;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
 //    ofSetFrameRate(60);
-//
-//    for(int i=0; i<NUM_CIRCLES;i++){
-//        circleX[i] = ofRandom(0, ofGetWidth());
-//        circleY[i] = ofRandom(0, ofGetHeight());
-//        circleRad[i] = ofRandom(10, 40);
-//    }
 
     ofBackground(255, 255, 255);
     ofSetCircleResolution(64);
 
-    b1.init(100, 10, 1.0);
-    b2.init(300, 40, 3.5);
-    
+    for(int i=0; i<NUM_CIRCLES;i++){
+        circles[i].init(100, 10, 1.0);
+    }
+
+/*
     bkImage.load("images/The_Girl_With_The_Pearl_Earring.jpg");
+    bkImage.grabScreen(0,0,ofGetWidth(),ofGetHeight()); // 0,0 からwindow width, heightのスクショを撮影
+    
+    for(int x = 0; x < bkImage.getWidth(); x++){
+        for(int y = 0; y < bkImage.getHeight(); y++){
+            int index = x + y * bkImage.getWidth();
+            color
+        }
+    }
+
+    float imageHeight = ofGetHeight();
+    float imageWidth  = imageHeight * 800 /1145;
+    float imageMarginWidth  = (ofGetWidth() - imageHeight * 800 /1145)/2;
+
+
+    bkImage.draw(imageMarginWidth, 0, imageWidth, imageHeight); // 800 x 1145
+*/
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    b1.update();
-    b2.update();
+//    b1.update();
+//    b2.update();
+
+    for(int i=0; i<NUM_CIRCLES;i++){
+        circles[i].grow();
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    float imageHeight = ofGetHeight();
-    float imageWidth  = imageHeight * 800 /1145;
-    float imageMarginWidth  = (ofGetWidth() - imageHeight * 800 /1145)/2;
-    bkImage.draw(imageMarginWidth, 0, imageWidth, imageHeight); // 800 x 1145
-    b1.display();
-    b2.display();
+    ofSetColor(0,0,0);
+    for(int i=0; i<NUM_CIRCLES;i++){
+        circles[i].display();
+    }
 }
 
 //--------------------------------------------------------------
