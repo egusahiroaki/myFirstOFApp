@@ -23,5 +23,7 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
     Ball b1, b2;
+    ofImage bkImage;
+    
 		
 };

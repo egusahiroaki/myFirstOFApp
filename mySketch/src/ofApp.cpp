@@ -20,6 +20,8 @@ void ofApp::setup(){
 
     b1.init(100, 10, 1.0);
     b2.init(300, 40, 3.5);
+    
+    bkImage.load("images/The_Girl_With_The_Pearl_Earring.jpg");
 }
 
 //--------------------------------------------------------------
@@ -38,7 +40,8 @@ void ofApp::draw(){
 //    for(int i=0; i<NUM_CIRCLES;i++){
 //        ofDrawCircle(circleX[i], circleY[i], circleRad[i]);
 //    }
-    ofSetColor(0, 0, 0);
+//    ofSetColor(0, 0, 0);
+    bkImage.draw(0, 0);
     b1.display();
     b2.display();
 }

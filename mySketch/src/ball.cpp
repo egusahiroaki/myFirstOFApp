@@ -19,7 +19,7 @@ void Ball::init (float _y, int _eSize, float _speed){
 void Ball::update() {
     
     xPos += speed;
-    if (xPos > 500){
+    if (xPos >  ofGetWidth()){
         xPos = 0;
     }
 }
