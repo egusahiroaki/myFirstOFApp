@@ -41,7 +41,10 @@ void ofApp::draw(){
 //        ofDrawCircle(circleX[i], circleY[i], circleRad[i]);
 //    }
 //    ofSetColor(0, 0, 0);
-    bkImage.draw(0, 0);
+    float imageHeight = ofGetHeight();
+    float imageWidth  = imageHeight * 800 /1145;
+    float widthMargin  = (ofGetWidth() - imageHeight * 800 /1145)/2;
+    bkImage.draw(widthMargin, 0, imageWidth, imageHeight); // 800 x 1145
     b1.display();
     b2.display();
 }
