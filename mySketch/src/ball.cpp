@@ -22,8 +22,8 @@ void Ball::init (float _x, float _y, int _eSize, ofColor _color){
 void Ball::grow() {
     
 //    cout << "grow" << endl;
-    if(isGrowing){
-        eSize += 1;
+    if(isGrowing && eSize <= 10){
+        eSize += 0.5;
     }
 }
 
@@ -53,9 +53,9 @@ void Ball::update() {
 }
 
 void Ball::display(){
-    color.r=255;
-    color.g=0;
-    color.b=0;
+//    color.r=255;
+//    color.g=0;
+//    color.b=0;
     ofSetColor(color);
     ofDrawCircle(xPos, yPos, eSize);
 }
