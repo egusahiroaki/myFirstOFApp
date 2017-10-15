@@ -14,8 +14,8 @@
 
 class Ball {
 public:
-    void init(float _x, float _y, int _eSize);
-    
+    void init(float _x, float _y, int _eSize, ofColor _color);
+
     void update();
 
     void grow();
@@ -26,6 +26,8 @@ public:
     void display();
     
     float xPos, yPos, eSize, speed;
+    
+    ofColor color;
 
     bool isGrowing;
     

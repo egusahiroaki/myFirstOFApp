@@ -9,12 +9,14 @@
 #include "ball.hpp"
 
 
-void Ball::init (float _x, float _y, int _eSize){
+void Ball::init (float _x, float _y, int _eSize, ofColor _color){
     xPos = _x;
     yPos = _y;
     eSize = _eSize;
     speed = 1;
     isGrowing = true;
+
+    color = _color;
 }
 
 void Ball::grow() {
@@ -51,5 +53,9 @@ void Ball::update() {
 }
 
 void Ball::display(){
+    color.r=255;
+    color.g=0;
+    color.b=0;
+    ofSetColor(color);
     ofDrawCircle(xPos, yPos, eSize);
 }

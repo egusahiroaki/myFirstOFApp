@@ -19,31 +19,26 @@ void ofApp::setup(){
     ofBackground(255, 255, 255);
     ofSetCircleResolution(64);
     
-    for(Ball c:circles){
-//        float x = ((float) rand() / (RAND_MAX));
-//        float y = ((float) rand() / (RAND_MAX));
-//        circles[i].init(ofGetWidth() * x, ofGetHeight() * y, 1.0);
-    }
-
-/*
     bkImage.load("images/The_Girl_With_The_Pearl_Earring.jpg");
     bkImage.grabScreen(0,0,ofGetWidth(),ofGetHeight()); // 0,0 からwindow width, heightのスクショを撮影
     
+    /*
     for(int x = 0; x < bkImage.getWidth(); x++){
         for(int y = 0; y < bkImage.getHeight(); y++){
-            int index = x + y * bkImage.getWidth();
-            color
+            // int index = x + y * bkImage.getWidth();
+            unsigned char * myPixels;
+            int colorIndex =  y*(bkImage.getWidth()*3)+x*3;
+            ofSetColor(myPixels[colorIndex],myPixels[colorIndex+1],myPixels[colorIndex+2]);
         }
     }
 
     float imageHeight = ofGetHeight();
     float imageWidth  = imageHeight * 800 /1145;
     float imageMarginWidth  = (ofGetWidth() - imageHeight * 800 /1145)/2;
-
-
     bkImage.draw(imageMarginWidth, 0, imageWidth, imageHeight); // 800 x 1145
-*/
 
+    */
+    
 }
 
 void ofApp::newCircle(){
@@ -60,7 +55,11 @@ void ofApp::newCircle(){
     }
     if(valid){
         Ball b;
-        b.init(x, y, 1.0);
+        ofColor color;
+        color.r=255;
+        color.g=0;
+        color.b=0;
+        b.init(x, y, 1.0, color);
         circles.push_back(b);
     }
 }
