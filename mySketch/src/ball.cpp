@@ -22,7 +22,7 @@ void Ball::init (float _x, float _y, int _eSize, ofColor _color){
 void Ball::grow() {
     
 //    cout << "grow" << endl;
-    if(isGrowing && eSize <= 10){
+    if(isGrowing){
         eSize += 0.5;
     }
 }

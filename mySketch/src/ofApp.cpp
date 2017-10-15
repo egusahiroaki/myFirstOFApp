@@ -21,20 +21,14 @@ void ofApp::setup(){
 //    ofSetCircleResolution(64);
     
     bkImage.load("images/The_Girl_With_The_Pearl_Earring.jpg");
+//    bkImage.draw(imageMarginWidth, 0, imageWidth, imageHeight); // 800 x 1145
 
     float imageHeight = ofGetHeight();
     float imageWidth  = imageHeight * 800 /1145;
     float imageMarginWidth  = (ofGetWidth() - imageHeight * 800 /1145)/2;
 
-//    bkImage.draw(imageMarginWidth, 0, imageWidth, imageHeight); // 800 x 1145
-
-//    bkImage.grabScreen(0,0,ofGetWidth(),ofGetHeight()); // 0,0 からwindow width, heightのスクショを撮影
-
-//    ofPixels pixels = bkImage.getPixelsRef();
-    
-    //unsigned char * pixels = bkImage.getPixels().getData();
     ofPixels pixels = bkImage.getPixels();
-    cout << pixels.size(); // 2748000
+    cout << pixels.size() << endl; // 2748000
     int w = bkImage.getWidth();
     int h = bkImage.getHeight();
     for (int i = 0; i < h; i++){
@@ -47,25 +41,8 @@ void ofApp::setup(){
         }
     }
 
-    cout << "colors";
+    cout << "colors" << endl;
     cout << colors.size();
-
-    
-/*
-    for(int x = 0; x < bkImage.getWidth(); x++){
-        for(int y = 0; y < bkImage.getHeight(); y++){
-            // int index = x + y * bkImage.getWidth();
-            unsigned char * myPixels;
-            int colorIndex =  y*(bkImage.getWidth()*3)+x*3;
-            cout << myPixels[colorIndex] << endl;
-            ofSetColor(myPixels[colorIndex],myPixels[colorIndex+1],myPixels[colorIndex+2]);
-        }
-    }
-*/
- 
-//    bkImage.draw(imageMarginWidth, 0, imageWidth, imageHeight); // 800 x 1145
-
-
     
 }
 
@@ -116,11 +93,6 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-//    float imageHeight = ofGetHeight();
-//    float imageWidth  = imageHeight * 800 /1145;
-//    float imageMarginWidth  = (ofGetWidth() - imageHeight * 800 /1145)/2;
-    
-//    bkImage.draw(0, 0, 800, 1145); // 800 x 1145
 
     for(Ball c:circles){
 //        ofNoFill();
