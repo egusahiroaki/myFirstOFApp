@@ -70,7 +70,6 @@ void ofApp::update(){
 
     newCircle();
     for(int i=0; i< circles.size(); i++){
-
         //cout << c.id << endl;
         if(circles[i].isGrowing){
             if(circles[i].checkEdge()){
@@ -85,9 +84,7 @@ void ofApp::update(){
                         }
                     }
                 }
-                
             }
-            
         }
         circles[i].grow();
     }
